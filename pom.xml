@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.maven</groupId>
 	<artifactId>PruebasIntegracionSelenium</artifactId>
@@ -35,6 +36,15 @@
 			<url>http://localhost:8085/repository/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<!-- Comentado porque sino cada vez que se quiere descargar un plugin, lo 
+		primero que hace es ir al repo de archiva -->
+	<!-- pluginRepositories> <pluginRepository> <id>internal</id> <name>Archiva 
+		Managed Internal Repository</name> <url>http://localhost:8085/repository/internal/</url> 
+		<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> 
+		</snapshots> </pluginRepository> <pluginRepository> <id>snapshots</id> <name>Archiva 
+		Managed Snapshot Repository</name> <url>http://localhost:8085/repository/snapshots/</url> 
+		<releases> <enabled>false</enabled> </releases> <snapshots> <enabled>true</enabled> 
+		</snapshots> </pluginRepository> </pluginRepositories -->
 	<repositories>
 		<repository>
 			<id>internal</id>
@@ -62,6 +72,60 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+				<executions>
+					<execution>
+						<id>pre-unit-test</id>
+						<!-- No define una fase en la que ejecutarse, ya que tiene una fase 
+							por defecto -->
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<dataFile>${project.build.directory}/jacoco.exec</dataFile>
+							<propertyName>surefireArgLine</propertyName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<dataFile>${project.build.directory}/jacoco.exec</dataFile>
+							<outputDirectory>${project.reporting.outputDirectory}/jacocout</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<groupId>com.curso.maven</groupId>
+				<artifactId>MiPlugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<parametros>
+						<nombre>Victor</nombre>
+					</parametros>
+				</configuration>
+				<executions>
+					<execution>
+						<id>ejecutar goal touch en test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>touch</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
@@ -84,6 +148,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.7.1</version>
 				<configuration>
+					<argLine>${surefireArgLine}</argLine>
 					<excludes>
 						<exclude>**/integracion/*.java</exclude>
 					</excludes>
@@ -192,6 +257,11 @@
 	</dependencies>
 	<reporting>
 		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
