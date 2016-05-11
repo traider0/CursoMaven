@@ -20,6 +20,12 @@
 	</contributors>
 	<url>http://localhost:8082/PruebasIntegracionSelenium</url>
 	<description>Pues este proyecto sirve de refrencia a como configurar un proyecto para crear un site</description>
+	<scm>
+		<developerConnection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</developerConnection>
+		<connection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</connection>
+		<url>https://github.com/victorherrerocazurro/CursoMaven</url>
+		<tag>HEAD</tag>
+	</scm>
 	<distributionManagement>
 		<repository>
 			<id>internal</id>
@@ -161,6 +167,15 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<username>${scm.username}</username>
+					<password>${scm.password}</password>
+					<connectionUrl>${scm.developerConnection}</connectionUrl>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
