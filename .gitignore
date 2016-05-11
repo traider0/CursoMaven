@@ -3,3 +3,5 @@
 .classpath
 target/
 build/
+pom.xml.releaseBackup
+release.properties
