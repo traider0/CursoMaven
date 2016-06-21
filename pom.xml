@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.maven</groupId>
 	<artifactId>PruebasIntegracionSelenium</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.0.6</version>
 	<packaging>war</packaging>
 	<!-- Metainformacion -->
 	<developers>
@@ -23,15 +23,15 @@
 		<developerConnection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</developerConnection>
 		<connection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</connection>
 		<url>https://github.com/victorherrerocazurro/CursoMaven</url>
-		<tag>PruebasIntegracionSelenium-0.0.4</tag>
+		<tag>PruebasIntegracionSelenium-0.0.6</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
-			<id>internal</id>
+			<id>archiva.internal</id>
 			<url>http://localhost:8085/repository/internal/</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshots</id>
+			<id>archiva.snapshots</id>
 			<url>http://localhost:8085/repository/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -46,7 +46,7 @@
 		</snapshots> </pluginRepository> </pluginRepositories -->
 	<repositories>
 		<repository>
-			<id>internal</id>
+			<id>archiva.internal</id>
 			<name>Archiva Managed Internal Repository</name>
 			<url>http://localhost:8085/repository/internal/</url>
 			<releases>
@@ -57,7 +57,7 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>snapshots</id>
+			<id>archiva.snapshots</id>
 			<name>Archiva Managed Snapshot Repository</name>
 			<url>http://localhost:8085/repository/snapshots/</url>
 			<releases>
@@ -192,17 +192,17 @@
 				<configuration>
 					<wait>true</wait>
 					<container>
-						<containerId>tomcat7x</containerId>
+						<containerId>tomcat8x</containerId>
 						<!-- Ubicacion del contenedor -->
-						<home>C:\Maven\apache-tomcat-7.0.69</home>
+						<home>C:\ecosistema\apache-tomcat-8.0.36</home>
 						<type>installed</type>
 					</container>
 					<configuration>
 						<type>existing</type>
 						<!-- Ubicacion a partir de la cual se creará la configuración de despliegue -->
-						<home>C:\Maven\apache-tomcat-7.0.69</home>
+						<home>C:\ecosistema\apache-tomcat-8.0.36</home>
 						<properties>
-							<cargo.servlet.port>8082</cargo.servlet.port>
+							<cargo.servlet.port>8080</cargo.servlet.port>
 						</properties>
 					</configuration>
 					<deployables>
@@ -210,7 +210,7 @@
 							<groupId>com.curso.maven</groupId>
 							<artifactId>PruebasIntegracionSelenium</artifactId>
 							<type>war</type>
-							<pingURL>http://localhost:8082/PruebasIntegracionSelenium/index.html</pingURL>
+							<pingURL>http://localhost:8080/PruebasIntegracionSelenium/index.html</pingURL>
 						</deployable>
 					</deployables>
 				</configuration>
@@ -235,8 +235,8 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-<!-- 					<username>${scm.username}</username> -->
-<!-- 					<password>{VOZLYMKfpHUHrreFo2QxbCYD7sSLADrIXk7PkO5AGqs=}</password> -->
+					<username>${scm.username}</username>
+ 					<password>{vJbHVNoz7N4HsufhpNbZW6oHUaXdaVdo/mrLUjWBaMk=}</password>
 					<connectionUrl>${scm.developerConnection}</connectionUrl>
 				</configuration>
 			</plugin>

@@ -29,14 +29,14 @@ https://maven.apache.org/xsd/decoration-1.7.0.xsd ">
 			<item name="Foo" href="foo.html" />
 			<item name="FAQ" href="faq.html" />
 		</menu>
-		<breadcrumbs>
-			<item name="Doxia" href="http://maven.apache.org/doxia/index.html" />
-			<item name="Trunk" href="http://maven.apache.org/doxia/doxia/index.html" />
-		</breadcrumbs>
 		<!-- Documentacion generada de forma automatica -->
 		<menu ref="modules" />
 		<menu ref="parent" />
 		<menu ref="reports" />
+		<breadcrumbs>
+			<item name="Doxia" href="http://maven.apache.org/doxia/index.html" />
+			<item name="Trunk" href="http://maven.apache.org/doxia/doxia/index.html" />
+		</breadcrumbs>
 	</body>
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>
