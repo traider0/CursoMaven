@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.maven</groupId>
 	<artifactId>PruebasIntegracionSelenium</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<!-- Metainformacion -->
 	<developers>
@@ -237,7 +237,7 @@
 				<configuration>
 					<username>${scm.username}</username>
  					<password>{vJbHVNoz7N4HsufhpNbZW6oHUaXdaVdo/mrLUjWBaMk=}</password>
-					<connectionUrl>${scm.developerConnection}</connectionUrl>
+					<connectionUrl>${project.scm.developerConnection}</connectionUrl>
 				</configuration>
 			</plugin>
 <!-- 			<plugin> -->
