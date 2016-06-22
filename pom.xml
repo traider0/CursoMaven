@@ -238,8 +238,6 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-					<username>${scm.username}</username>
- 					<password>{vJbHVNoz7N4HsufhpNbZW6oHUaXdaVdo/mrLUjWBaMk=}</password>
 					<connectionUrl>${project.scm.developerConnection}</connectionUrl>
 				</configuration>
 			</plugin>
