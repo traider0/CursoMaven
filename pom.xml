@@ -25,6 +25,9 @@
 		<url>https://github.com/victorherrerocazurro/CursoMaven</url>
 		<tag>PruebasIntegracionSelenium-0.0.6</tag>
 	</scm>
+	<properties>
+		<project.scm.id>scm_server</project.scm.id>
+	</properties>
 	<distributionManagement>
 		<repository>
 			<id>archiva.internal</id>
