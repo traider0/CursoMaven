@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.maven</groupId>
 	<artifactId>PruebasIntegracionSelenium</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.0.7-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<!-- Metainformacion -->
 	<developers>
@@ -23,7 +23,7 @@
 		<developerConnection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</developerConnection>
 		<connection>scm:git:https://github.com/victorherrerocazurro/CursoMaven</connection>
 		<url>https://github.com/victorherrerocazurro/CursoMaven</url>
-		<tag>PruebasIntegracionSelenium-0.0.6</tag>
+		<tag>PruebasIntegracionSelenium-0.0.7</tag>
 	</scm>
 	<properties>
 		<project.scm.id>scm_server</project.scm.id>
